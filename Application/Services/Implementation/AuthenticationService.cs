@@ -1,9 +1,8 @@
-﻿using Core.Entities;
+﻿using Application.Services.Interfaces;
+using Core.Entities;
 using Core.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Services.Implementation
@@ -17,7 +16,7 @@ namespace Application.Services.Implementation
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<string> AuthenticateAsync(string username, string password)
+        public async Task<Utilisateur> LoginAsync(string username, string password)
         {
             var users = await _unitOfWork.Utilisateurs.GetAllAsync();
             var user = users.FirstOrDefault(u => u.NomUtilisateur == username && u.MotDePasse == password);
@@ -25,8 +24,7 @@ namespace Application.Services.Implementation
             if (user == null)
                 throw new UnauthorizedAccessException("Invalid username or password");
 
-            // Simulate JWT token generation
-            return $"GeneratedTokenFor:{username}";
+            return user; // Return Utilisateur object
         }
 
         public async Task<bool> RegisterAsync(string username, string password, string role)
@@ -51,6 +49,7 @@ namespace Application.Services.Implementation
             _unitOfWork.Utilisateurs.Update(user);
             return await _unitOfWork.SaveChangesAsync() > 0;
         }
-    }
 
+       
+    }
 }

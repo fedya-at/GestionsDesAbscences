@@ -1,6 +1,6 @@
 ﻿using Core.Entities;
 using Core.Interfaces;
-using Infrastructure.Data.Infrastructure.Data;
+using Infrastructure.Data;
 
 namespace Infrastructure.Data
 {

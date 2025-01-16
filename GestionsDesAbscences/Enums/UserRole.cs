@@ -10,6 +10,7 @@ namespace Core.Enums
     {
         Admin,
         Teacher,
+        Student,
         DataEntry
     }
 
