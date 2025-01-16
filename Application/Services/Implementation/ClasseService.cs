@@ -50,7 +50,6 @@ namespace Application.Services.Implementation
         {
             var classe = new Classe
             {
-                CodeClasse = classeDto.CodeClasse,
                 NomClasse = classeDto.NomClasse,
                 CodeGroupe = classeDto.CodeGroupe,
                 CodeDepartement = classeDto.CodeDepartement

@@ -15,6 +15,5 @@ namespace Core.Entities
         [Required]
         [StringLength(100)]
         public string? NomDepartement { get; set; }
-
     }
 }
